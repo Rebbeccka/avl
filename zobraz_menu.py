@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 
-def zobraz_menu():
+def display_menu():
     """Funkcia zobraz_menu vypíše ponuky pre používateľa"""
     print("1. Vložiť kľúč a hodnotu")
     print("2. Získať hodnotu podľa kľúča")
