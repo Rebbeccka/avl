@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 
 class AVLNode:
     """Definícia triedy AVLNode, reprezentuje uzol v AVL strome"""

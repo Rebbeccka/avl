@@ -1,10 +1,10 @@
+# -*- coding: utf-8 -*-
 from avl_map import AVLMap
 from zobraz_menu import zobraz_menu
 
-
-
-if __name__ == "__main__":
+def main():
     avl_mapa = AVLMap()
+
 
     while True:
         zobraz_menu()
@@ -13,12 +13,12 @@ if __name__ == "__main__":
         if volba == "1":
             kluc = input("Zadajte kľúč: ")
             hodnota = input("Zadajte hodnotu: ")
-            avl_mapa.vloz(kluc, hodnota)
+            avl_mapa.insert(kluc, hodnota)
             print("Kľúč a hodnota boli vložené do mapy.")
         elif volba == "2":
             kluc = input("Zadajte kľúč, pre ktorý chcete získať hodnotu: ")
             if kluc in avl_mapa:
-                hodnota = avl_mapa.ziskaj(kluc)
+                hodnota = avl_mapa.get(kluc)
                 print(f"Hodnota pre kľúč '{kluc}': {hodnota}")
             else:
                 print(f"Kľúč '{kluc}' nebol nájdený v mape.")
@@ -44,4 +44,8 @@ if __name__ == "__main__":
             break
         else:
             print("Neplatná voľba. Zadajte číslo od 1 do 6.")
+
+
+if __name__ == "__main__":
+    main()
 
