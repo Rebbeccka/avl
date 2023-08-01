@@ -7,26 +7,27 @@ class AVLMap:
     def __init__(self):
         self.root = None     # Koreň AVL stromu (na zaciatku je strom prázdny)
 
-    # Metóda height vráti výšku uzla (pokiaľ je uzol None, výška je 0)
+    """Metóda height vráti výšku uzla (pokiaľ je uzol None, výška je 0)"""
     def height(self, node):
         if node is None:
             return 0
         return node.height
 
-    # Metóda update_height aktualizuje výšku uzla podľa výšok jeho potomkov
     def update_height(self, node):
+        """ Metóda update_height aktualizuje výšku uzla podľa výšok jeho potomkov"""
         node.height = max(self.height(node.left), self.height(node.right)) + 1
 
-    # Metóda balance_factor vráti rozdiel výšky medzi ľavým a pravým podstromom
     def balance_factor(self, node):
+        """Metóda balance_factor vráti rozdiel výšky medzi ľavým a pravým podstromom"""
         if node is None:
             return 0
         return self.height(node.left) - self.height(node.right)
 
-    # Metódy left_rotate a right_rotate slúžia na rotáciu uzlov a udržanie vyváženia stromu
-
-    # Metóda left_rotate vykoná rotáciu uzla doprava
     def left_rotate(self, z):
+        """
+        Metódy left_rotate a right_rotate slúžia na rotáciu uzlov a udržanie vyváženia stromu
+        Metóda left_rotate vykoná rotáciu uzla doprava
+        """
         y = z.right
         T2 = y.left
 
@@ -38,8 +39,8 @@ class AVLMap:
 
         return y
 
-    # Metóda right_rotate vykoná rotáciu uzla doľava
     def right_rotate(self, y):
+        """Metóda right_rotate vykoná rotáciu uzla doľava"""
         x = y.left
         T2 = x.right
 
@@ -51,12 +52,12 @@ class AVLMap:
 
         return x
 
-    # Metóda insert vloží nový uzol s daným kľúčom a hodnotou do AVL stromu
     def insert(self, key, value):
+        """Metóda insert vloží nový uzol s daným kľúčom a hodnotou do AVL stromu"""
         self.root = self._insert(self.root, key, value)
 
-    # Rekurzívna metóda _insert vloží nový uzol do podstromu daného uzla
     def _insert(self, node, key, value):
+        """Rekurzívna metóda _insert vloží nový uzol do podstromu daného uzla"""
         if node is None:
             return AVLNode(key, value)
 
@@ -89,12 +90,12 @@ class AVLMap:
 
         return node
 
-    # Metóda get získa hodnotu pre zadaný kľúč z AVL stromu
     def get(self, key):
+        """Rekurzívna metóda _insert vloží nový uzol do podstromu daného uzla"""
         return self._get(self.root, key)
 
-    # Rekurzívna metóda _get získa hodnotu pre zadaný kľúč z podstromu daného uzla
     def _get(self, node, key):
+        """Rekurzívna metóda _get získa hodnotu pre zadaný kľúč z podstromu daného uzla"""
         if node is None:
             raise KeyError("Kľúč nebol nájdený")
 
@@ -105,20 +106,20 @@ class AVLMap:
         else:
             return self._get(node.right, key)
 
-    # Metóda contains skontroluje, či je zadaný kľúč obsiahnutý v AVL strome
     def contains(self, key):
+        """Metóda contains skontroluje, či je zadaný kľúč obsiahnutý v AVL strome"""
         try:
             self.get(key)
             return True
         except KeyError:
             return False
 
-    # Metóda remove odstráni uzol s daným kľúčom z AVL stromu
     def remove(self, key):
+        """Metóda remove odstráni uzol s daným kľúčom z AVL stromu"""
         self.root = self._remove(self.root, key)
 
-    # Rekurzívna metóda _remove odstráni uzol s daným kľúčom z podstromu daného uzla
     def _remove(self, node, key):
+        """Rekurzívna metóda _remove odstráni uzol s daným kľúčom z podstromu daného uzla"""
         if node is None:
             return node
 
@@ -154,35 +155,35 @@ class AVLMap:
 
         return node
 
-    # Metóda _min_value_node vráti uzol s najmenším kľúčom v podstrome daného uzla
     def _min_value_node(self, node):
+        """Metóda _min_value_node vráti uzol s najmenším kľúčom v podstrome daného uzla"""
         current = node
         while current.left is not None:
             current = current.left
         return current
 
-    # Metóda __getitem__ slúži na získanie hodnoty pre zadaný kľúč pomocou operátora []
     def __getitem__(self, key):
+        """Metóda __getitem__ slúži na získanie hodnoty pre zadaný kľúč pomocou operátora []"""
         return self.get(key)
 
-    # Metóda __setitem__ slúži na vloženie nového uzla pomocou operátora []=
     def __setitem__(self, key, value):
+        """Metóda __setitem__ slúži na vloženie nového uzla pomocou operátora []="""
         self.insert(key, value)
 
-    # Metóda __delitem__ slúži na odstránenie uzla pomocou operátora del
     def __delitem__(self, key):
+        """Metóda __delitem__ slúži na odstránenie uzla pomocou operátora del"""
         self.remove(key)
 
-    # Metóda __contains__ slúži na overenie, či je zadaný kľúč obsiahnutý v AVL strome
     def __contains__(self, key):
+        """Metóda __contains__ slúži na overenie, či je zadaný kľúč obsiahnutý v AVL strome"""
         return self.contains(key)
 
-    # Metóda __iter__ slúži na iteráciu cez kľúče v AVL strome (inorder prehľadávanie)
     def __iter__(self):
+        """Metóda __iter__ slúži na iteráciu cez kľúče v AVL strome (inorder prehľadávanie)"""
         return self._inorder_traversal(self.root)
 
-    # Metóda _inorder_traversal rekurzívne prehľadáva AVL strom inorder a vracia kľúče
     def _inorder_traversal(self, node):
+        """Metóda _inorder_traversal rekurzívne prehľadáva AVL strom inorder a vracia kľúče"""
         if node is not None:
             yield from self._inorder_traversal(node.left)
             yield node.key
