@@ -15,7 +15,7 @@ class AVLMap:
         return node.height
 
     def update_height(self, node):
-        """Metóda update_height aktualizuje výšku uzla podľa výšok jeho potomkov"""
+        """Metóda update_height aktualizuje výšku uzla podľa výšky jeho potomkov"""
         node.height = max(self.height(node.left), self.height(node.right)) + 1
 
     def balance_factor(self, node):
@@ -73,7 +73,6 @@ class AVLMap:
         self.update_height(node)
 
         balance = self.balance_factor(node)
-
 
         if balance > 1 and key < node.left.key:
             return self.right_rotate(node)
@@ -139,7 +138,6 @@ class AVLMap:
 
         balance = self.balance_factor(node)
 
-
         if balance > 1 and self.balance_factor(node.left) >= 0:
             return self.right_rotate(node)
 
@@ -168,11 +166,11 @@ class AVLMap:
         return self.get(key)
 
     def __setitem__(self, key, value):
-        """Metóda __setitem__ slúži na vloženie nového uzla pomocou operátora []="""
+        """Metóda __setitem__ slúži na vloženie nového uzla """
         self.insert(key, value)
 
     def __delitem__(self, key):
-        """Metóda __delitem__ slúži na odstránenie uzla pomocou operátora del"""
+        """Metóda __delitem__ slúži na odstránenie uzla """
         self.remove(key)
 
     def __contains__(self, key):
