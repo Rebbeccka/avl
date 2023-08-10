@@ -6,7 +6,9 @@ from zobraz_menu import display_menu
 def main():
     avl_map = AVLMap()
 
-    while True:
+    running: bool = True
+
+    while running:
         display_menu()
         choice = input("Vyberte číslo akcie: ")
 
@@ -23,7 +25,6 @@ def main():
                     print("Kľúč a hodnota boli vložené do mapy.")
             except ValueError:
                 print("Hodnota musí byť číslo")
-
 
         elif choice == "2":
             key = input("Zadajte kľúč, pre ktorý chcete získať hodnotu: ")
@@ -55,7 +56,7 @@ def main():
 
         elif choice == "6":
             print("Ukončujem program.")
-            break
+            running = False
 
         else:
             print("Neplatná voľba. Zadajte číslo od 1 do 6.")
