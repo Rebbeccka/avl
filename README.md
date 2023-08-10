@@ -1,6 +1,7 @@
 # Avl Map
 
-Program AVLMap je implementáciou mapy s vyvážením AVL v programovacom jazyku Python. Mapa je dátová štruktúra, ktorá zobrazuje kľúče na hodnoty, podobne ako slovník v Pythone. Vyváženie AVL stromu zabezpečuje efektívne vyhľadávanie, vkladanie a odstraňovanie prvkov.
+Program AVLMap je implementáciou mapy s vyvážením AVL stromom v programovacom jazyku Python. Mapa je dátová štruktúra, ktorá zobrazuje kľúče na hodnoty, podobne ako slovník v Pythone. 
+Vyváženie AVL stromu zabezpečuje efektívne vyhľadávanie, vkladanie a odstraňovanie prvkov.
 
 Účel programu:
 Program umožňuje vkladať kľúče a hodnoty do mapy.
