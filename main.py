@@ -55,11 +55,12 @@ def main():
                 print(f"{key}: {avl_map[key]}")
 
         elif choice == "6":
+            print("Zobrazujem strom:")
+            avl_map.print_tree()
+
+        elif choice == "7":
             print("Ukončujem program.")
             running = False
-
-        else:
-            print("Neplatná voľba. Zadajte číslo od 1 do 6.")
 
 
 if __name__ == "__main__":

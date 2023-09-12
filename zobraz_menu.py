@@ -8,4 +8,5 @@ def display_menu():
     print("3. Skontrolovať, či je kľúč obsiahnutý v mape")
     print("4. Odstrániť prvok podľa kľúča")
     print("5. Vypísať celú mapu")
-    print("6. Ukončiť program")
+    print("6. Zobraziť strom")
+    print("7. Ukončiť program")

@@ -41,6 +41,8 @@ Postupne spracováva vstupy od používateľa a vykonáva príslušné operácie
 - inorder_traversal: Rekurzívne prehľadáva strom inorder a vracia kľúče.
 - contains_value: Skontroluje, či je daná hodnota obsiahnutá v strome.
 - contains_value: Rekurzívne skontroluje, či je daná hodnota obsiahnutá v podstrome daného uzla.
+- print_tree: Metóda print_tree vypíše strom spolu s jeho štruktúrou.
+- _print_tree: Rekurzívna metóda _print_tree vypíše strom s jeho štruktúrou.
 
 
 ## Funkcia display_menu:
