@@ -203,16 +203,18 @@ class AVLMap:
         else:
             return self._contains_value(node.right, value)
 
+    #Metóda print tree vypíše strom spolu s jeho štruktúrou."""
     def print_tree(self):
-        """Metóda print_tree vypíše strom spolu s jeho štruktúrou."""
         self._print_tree(self.root, 0)
 
     def _print_tree(self, node, level):
-        """Rekurzívna metóda _print_tree vypíše strom s jeho štruktúrou."""
+
         if node is not None:
             self._print_tree(node.right, level + 3)
             print("  " * level + str(node.key))
             self._print_tree(node.left, level + 3)
+
+
 
 
 
